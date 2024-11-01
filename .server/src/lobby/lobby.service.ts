@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, LessThan } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Lobby } from './lobby.entity';
+import { ClientRequest, LobbyRequest } from 'src/Types';
 
 @Injectable()
 export class LobbyService {
@@ -16,7 +17,7 @@ export class LobbyService {
     await this.lobbyRepository.delete({ timestamp: LessThan(date) });
   }
 
-  async createLobby(data: any): Promise<Lobby> {
+  async createLobby(data: LobbyRequest): Promise<Lobby> {
     await this.cleanupOldLobbies();
     const lobby = this.lobbyRepository.create({
       ...data,
@@ -43,7 +44,7 @@ export class LobbyService {
     return lobby;
   }
 
-  async addClient(data: any): Promise<void> {
+  async addClient(data: ClientRequest): Promise<void> {
     await this.cleanupOldLobbies();
     const lobby = await this.getLobby(data.project, data.name);
     const newClient = { offer: data.offer, ice: data.ice };

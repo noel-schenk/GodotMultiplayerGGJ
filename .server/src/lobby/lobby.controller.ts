@@ -1,17 +1,23 @@
 import { Controller, Post, Get, Body, Query, HttpStatus } from '@nestjs/common';
 import { LobbyService } from './lobby.service';
 import { Lobby } from './lobby.entity';
+import { ClientRequest, LobbyRequest } from 'src/Types';
+import { ApiQuery } from '@nestjs/swagger';
 
 @Controller()
 export class LobbyController {
   constructor(private readonly lobbyService: LobbyService) {}
 
   @Post('create-lobby')
-  async createLobby(@Body() data: any): Promise<Lobby> {
+  async createLobby(
+    @Body()
+    data: LobbyRequest,
+  ): Promise<Lobby> {
     return this.lobbyService.createLobby(data);
   }
 
   @Get('get-lobbies')
+  @ApiQuery({ name: 'name', required: false, type: String })
   async getLobbies(
     @Query('project') project: string,
     @Query('name') name?: string,
@@ -26,7 +32,7 @@ export class LobbyController {
   }
 
   @Post('add-client')
-  async addClient(@Body() data: any): Promise<{ message: string }> {
+  async addClient(@Body() data: ClientRequest): Promise<{ message: string }> {
     await this.lobbyService.addClient(data);
     return { message: 'Client added' };
   }

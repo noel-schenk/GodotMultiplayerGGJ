@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 
-@Entity()
+@Entity('lobbies')
 export class Lobby {
   @PrimaryGeneratedColumn()
   id: number;
