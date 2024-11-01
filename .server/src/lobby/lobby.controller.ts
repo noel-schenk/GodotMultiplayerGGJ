@@ -1,7 +1,7 @@
 import { Controller, Post, Get, Body, Query, HttpStatus } from '@nestjs/common';
 import { LobbyService } from './lobby.service';
 import { Lobby } from './lobby.entity';
-import { ClientRequest, LobbyRequest } from 'src/Types';
+import { ClientRequest, LobbyRequest } from './../Types';
 import { ApiQuery } from '@nestjs/swagger';
 
 @Controller()

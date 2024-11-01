@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository, LessThan } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Lobby } from './lobby.entity';
-import { ClientRequest, LobbyRequest } from 'src/Types';
+import { ClientRequest, LobbyRequest } from './../Types';
 
 @Injectable()
 export class LobbyService {
