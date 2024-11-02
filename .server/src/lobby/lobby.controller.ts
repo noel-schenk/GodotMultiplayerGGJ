@@ -32,8 +32,7 @@ export class LobbyController {
   }
 
   @Post('add-client')
-  async addClient(@Body() data: ClientRequest): Promise<{ message: string }> {
-    await this.lobbyService.addClient(data);
-    return { message: 'Client added' };
+  async addClient(@Body() data: ClientRequest): Promise<Lobby> {
+    return this.lobbyService.addClient(data);
   }
 }

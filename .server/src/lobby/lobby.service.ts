@@ -44,11 +44,11 @@ export class LobbyService {
     return lobby;
   }
 
-  async addClient(data: ClientRequest): Promise<void> {
+  async addClient(data: ClientRequest): Promise<Lobby> {
     await this.cleanupOldLobbies();
     const lobby = await this.getLobby(data.project, data.name);
     const newClient = { offer: data.offer, ice: data.ice };
     lobby.clients.push(newClient);
-    await this.lobbyRepository.save(lobby);
+    return this.lobbyRepository.save(lobby);
   }
 }
