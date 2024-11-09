@@ -120,7 +120,7 @@ export class OffersController {
     status: HttpStatus.OK,
     description: 'Waits for exchange.client to be set',
   })
-  @Put(':offerUuid/requests/:requestUuid/exchange/server')
+  @Put('requests/:requestUuid/exchange/server')
   async putExchangeServer(
     @Param('requestUuid') requestUuid: string,
     @Body() exchangeServerDto: PutExchangeDto,
@@ -154,7 +154,7 @@ export class OffersController {
     status: HttpStatus.OK,
     description: 'Client exchange updated',
   })
-  @Put(':offerUuid/requests/:requestUuid/exchange/client')
+  @Put('requests/:requestUuid/exchange/client')
   async putExchangeClient(
     @Param('requestUuid') requestUuid: string,
     @Body() exchangeClientDto: PutExchangeDto,
