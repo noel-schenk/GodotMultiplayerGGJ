@@ -88,7 +88,10 @@ export class OffersController {
       );
       if (updatedRequest.exchange && updatedRequest.exchange.server) {
         clearInterval(interval);
-        res.json(updatedRequest.exchange.server);
+        res.json({
+          ...updatedRequest.exchange.server,
+          uuid: offerRequest.uuid,
+        });
       }
     }, 1000);
 
