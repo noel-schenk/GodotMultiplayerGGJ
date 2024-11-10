@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://52xdf262flcy"]
+
+[ext_resource type="Texture2D" uid="uid://dafhh5ds3n7vu" path="res://Icons/32x32.png" id="1_6av34"]
+[ext_resource type="Script" path="res://multiplayer_server.gd" id="1_wk3d8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y115q"]
+atlas = ExtResource("1_6av34")
+region = Rect2(0, 1920, 32, 32)
+
+[node name="multiplayer_server" type="Container"]
+custom_minimum_size = Vector2(402, 40)
+offset_right = 402.0
+offset_bottom = 40.0
+script = ExtResource("1_wk3d8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(48, 32)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/MarginContainer"]
+texture = SubResource("AtlasTexture_y115q")
+centered = false
+region_rect = Rect2(32, 32, 32, 32)
+
+[node name="multiplayer_server_text" type="Label" parent="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Noel toller server ist das Noel toller server ist das "
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="join_button" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(402, 40)
+layout_mode = 2
+action_mode = 0
+ignore_texture_size = true

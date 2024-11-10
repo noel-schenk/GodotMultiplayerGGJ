@@ -19,3 +19,11 @@ config/icon="res://icon.svg"
 
 State="*res://state.gd"
 Utils="*res://utils.gd"
+
+[gui]
+
+theme/default_font_subpixel_positioning=0
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.105882, 0.584314, 0.784314, 1)

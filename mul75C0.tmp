@@ -1,0 +1,354 @@
+[gd_scene load_steps=21 format=3 uid="uid://d1bnod77usp7a"]
+
+[ext_resource type="Theme" uid="uid://bgwqxtwa4vp3e" path="res://Theme/kenneyUI-blue.tres" id="1_qijef"]
+[ext_resource type="Script" path="res://multiplayer.gd" id="1_ult5p"]
+[ext_resource type="PackedScene" uid="uid://52xdf262flcy" path="res://multiplayer_server.tscn" id="3_b37e6"]
+[ext_resource type="Texture2D" uid="uid://dafhh5ds3n7vu" path="res://Icons/32x32.png" id="4_5mis2"]
+[ext_resource type="Texture2D" uid="uid://cwr6vks57xcha" path="res://Icons/Loading/01.png" id="5_qu7xl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpxyf"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35sid"]
+atlas = ExtResource("4_5mis2")
+region = Rect2(256, 928, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74xho"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdfuf"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3ea6"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8jj5"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3g1f"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0obu"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58rwe"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f134"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf6fu"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5rwt"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wywpk"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yr3a"]
+atlas = ExtResource("5_qu7xl")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pp8yh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74xho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdfuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3ea6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8jj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3g1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0obu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58rwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f134")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf6fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5rwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wywpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yr3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Multiplayer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 267.0
+offset_bottom = 131.0
+theme = ExtResource("1_qijef")
+script = ExtResource("1_ult5p")
+
+[node name="HTTPRequest_create_offer" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_get_public_offers" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_get_offer_details" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_create_offer_request" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_get_oldest_offer_request" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_set_server_exchange" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest_set_client_exchange" type="HTTPRequest" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
+
+[node name="create_lobby_step_1" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_1"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Create a Lobby"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="create_lobby_name_input" type="LineEdit" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Lobby Name"
+
+[node name="create_lobby_is_public_button" type="CheckButton" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "Public"
+
+[node name="create_lobby_create_button" type="Button" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Create Lobby"
+
+[node name="create_lobby_step_2" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Start the game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="create_lobby_lobby_name_label" type="Label" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Lobby name: "
+
+[node name="create_lobby_start_game_button" type="Button" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Start game"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Join a lobby"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="join_lobby_name_input" type="LineEdit" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Lobby Name"
+
+[node name="join_lobby_join_button" type="Button" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Join Lobby"
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Lobby Browser"
+
+[node name="margin ding" type="MarginContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_constants/margin_left = 40
+
+[node name="joing_lobby_reload_server_browser" type="Button" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/margin ding"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/margin ding/joing_lobby_reload_server_browser"]
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_35sid")
+centered = false
+offset = Vector2(8, 8)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="join_lobby_browser" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="multiplayer_server" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer/ScrollContainer/join_lobby_browser" instance=ExtResource("3_b37e6")]
+layout_mode = 2
+text = "Test"
+
+[node name="Loading" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Loading"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Loading/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Loading/HBoxContainer/MarginContainer"]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pp8yh")
+autoplay = "default"
+frame_progress = 0.25301
+centered = false
+
+[node name="Label" type="Label" parent="Loading/HBoxContainer"]
+layout_mode = 2
+text = "Loading Multiplayer Peer Session"
+
+[connection signal="pressed" from="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer/create_lobby_create_button" to="." method="_on_create_lobby_create_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer/create_lobby_start_game_button" to="." method="_on_create_lobby_start_game_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer/join_lobby_join_button" to="." method="_on_join_lobby_join_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/margin ding/joing_lobby_reload_server_browser" to="." method="_on_joing_lobby_reload_server_browser_pressed"]
