@@ -22,6 +22,7 @@ var clientOrServer = "client"
 @onready var create_lobby_step_2 := $Main/HBoxContainer/MarginContainer/create_lobby_step_2
 
 @onready var create_lobby_name_label := $Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer/create_lobby_lobby_name_label
+@onready var create_lobby_lobby_uuid_input := $Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer/create_lobby_lobby_uuid_input
 @onready var create_lobby_start_game_button := $Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer/create_lobby_start_game_button
 
 @onready var game_view := $Main/GameView
@@ -297,7 +298,8 @@ func webRTC_set_remote(requestData: Dictionary = {}):
 func create_lobby(requestData: Dictionary = {}, responseData: Dictionary = {}, is_callback: bool = false):
 	if not is_callback: return create_offer(requestData.name, requestData.is_public)
 	
-	create_lobby_name_label.text = "Lobby ID: %s" % responseData.uuid
+	create_lobby_name_label.text = "Lobby ID:"
+	create_lobby_lobby_uuid_input.text = responseData.uuid
 	
 	create_lobby_step_1.visible = false
 	create_lobby_step_2.visible = true

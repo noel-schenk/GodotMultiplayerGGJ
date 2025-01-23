@@ -201,6 +201,7 @@ theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 
@@ -215,6 +216,11 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
+
+[node name="create_lobby_lobby_uuid_input" type="TextEdit" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+placeholder_text = "Private ID"
 
 [node name="create_lobby_lobby_name_label" type="Label" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
