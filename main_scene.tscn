@@ -39,13 +39,17 @@ func _ready() -> void:
 script = ExtResource("1_6p13g")
 CharacterScene = ExtResource("5_8ajps")
 
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -75.0
+offset_top = -687.0
+offset_right = -35.0
+offset_bottom = -647.0
+scale = Vector2(31.9416, 19.9469)
+color = Color(0.105882, 0.584314, 0.784314, 1)
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://character.tscn")
 spawn_path = NodePath("..")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(628, -279)
-zoom = Vector2(0.9, 0.9)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

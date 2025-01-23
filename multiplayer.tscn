@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccgvfh3qe76yi" path="res://main_scene.tscn" id="6_ai4sr"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4yany"]
-properties/0/path = NodePath("GameView:visible")
+properties/0/path = NodePath("Main/GameView:visible")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
@@ -126,8 +126,8 @@ animations = [{
 [node name="Multiplayer" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 267.0
-offset_bottom = 131.0
+offset_right = 2197.0
+offset_bottom = 1196.0
 theme = ExtResource("1_qijef")
 script = ExtResource("1_ult5p")
 mutliplayer_server_node = ExtResource("3_b37e6")
@@ -135,60 +135,64 @@ mutliplayer_server_node = ExtResource("3_b37e6")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_4yany")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Main" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main"]
+offset_right = 1983.0
+offset_bottom = 827.0
+scale = Vector2(2, 2)
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
 
-[node name="create_lobby_step_1" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
+[node name="create_lobby_step_1" type="MarginContainer" parent="Main/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_1"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_1"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2"]
+[node name="Label" type="Label" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Create a Lobby"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="create_lobby_name_input" type="LineEdit" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
+[node name="create_lobby_name_input" type="LineEdit" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 placeholder_text = "Lobby Name"
 
-[node name="create_lobby_is_public_button" type="CheckButton" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
+[node name="create_lobby_is_public_button" type="CheckButton" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 button_pressed = true
 text = "Public"
 
-[node name="create_lobby_create_button" type="Button" parent="HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
+[node name="create_lobby_create_button" type="Button" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_1/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Create Lobby"
 
-[node name="create_lobby_step_2" type="MarginContainer" parent="HBoxContainer/MarginContainer"]
+[node name="create_lobby_step_2" type="MarginContainer" parent="Main/HBoxContainer/MarginContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 40
@@ -196,95 +200,96 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2"]
+[node name="Label" type="Label" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Start the game"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="create_lobby_lobby_name_label" type="Label" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
+[node name="create_lobby_lobby_name_label" type="Label" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Lobby name: "
 
-[node name="create_lobby_start_game_button" type="Button" parent="HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
+[node name="create_lobby_start_game_button" type="Button" parent="Main/HBoxContainer/MarginContainer/create_lobby_step_2/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Start game"
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Main/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/HBoxContainer/MarginContainer2"]
 clip_contents = true
+custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Join a lobby"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="join_lobby_name_input" type="LineEdit" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="join_lobby_name_input" type="LineEdit" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 placeholder_text = "Lobby Name"
 
-[node name="join_lobby_join_button" type="Button" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="join_lobby_join_button" type="Button" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Join Lobby"
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2"]
+[node name="Label" type="Label" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Lobby Browser"
 
-[node name="margin ding" type="MarginContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 theme_override_constants/margin_left = 40
 
-[node name="joing_lobby_reload_server_browser" type="Button" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/margin ding"]
+[node name="joing_lobby_reload_server_browser" type="Button" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/MarginContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/margin ding/joing_lobby_reload_server_browser"]
+[node name="Sprite2D" type="Sprite2D" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/VBoxContainer2/MarginContainer/joing_lobby_reload_server_browser"]
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_35sid")
 centered = false
@@ -292,41 +297,42 @@ offset = Vector2(8, 8)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
+[node name="PanelContainer2" type="PanelContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="join_lobby_browser" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer/ScrollContainer"]
+[node name="join_lobby_browser" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="multiplayer_server" parent="HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer/ScrollContainer/join_lobby_browser" instance=ExtResource("3_b37e6")]
+[node name="multiplayer_server" parent="Main/HBoxContainer/MarginContainer2/MarginContainer/VBoxContainer2/PanelContainer2/MarginContainer/ScrollContainer/join_lobby_browser" instance=ExtResource("3_b37e6")]
 layout_mode = 2
 text = "Loading ..."
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="Main/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer3"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/HBoxContainer/MarginContainer3"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gpxyf")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/HBoxContainer/MarginContainer3"]
 clip_contents = true
 layout_mode = 2
 theme_override_constants/margin_left = 40
@@ -334,46 +340,45 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer3/MarginContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/HBoxContainer/MarginContainer3/MarginContainer"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer3/MarginContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="Main/HBoxContainer/MarginContainer3/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Chat"
 
-[node name="Chat" type="TextEdit" parent="HBoxContainer/MarginContainer3/MarginContainer/VBoxContainer2"]
+[node name="Chat" type="TextEdit" parent="Main/HBoxContainer/MarginContainer3/MarginContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gtucr")
 placeholder_text = "Chat loading ..."
 
-[node name="SendChat" type="Button" parent="HBoxContainer/MarginContainer3/MarginContainer/VBoxContainer2"]
+[node name="SendChat" type="Button" parent="Main/HBoxContainer/MarginContainer3/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Send"
 
-[node name="Loading" type="MarginContainer" parent="."]
+[node name="Loading" type="MarginContainer" parent="Main"]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 539.0
+offset_bottom = 280.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Loading"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/Loading"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Loading/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/Loading/HBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Loading/HBoxContainer/MarginContainer"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Main/Loading/HBoxContainer/MarginContainer"]
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pp8yh")
@@ -381,10 +386,11 @@ autoplay = "default"
 frame_progress = 0.25301
 centered = false
 
-[node name="Label" type="Label" parent="Loading/HBoxContainer"]
+[node name="Label" type="Label" parent="Main/Loading/HBoxContainer"]
 layout_mode = 2
 text = "Loading Multiplayer Peer Session"
 
-[node name="GameView" parent="." instance=ExtResource("6_ai4sr")]
+[node name="GameView" parent="Main" instance=ExtResource("6_ai4sr")]
 visible = false
-position = Vector2(164, 780)
+position = Vector2(344, 2065)
+scale = Vector2(3, 3)

@@ -5,7 +5,7 @@ func sleep(time: float):
 
 func for_each(array: Array, callback: Callable):
 	for element in array:
-		callback.call(element)  
+		callback.call(element)
 
 func better_print(texts: Array, chunk_size: int = 1):
 	for text in texts:
@@ -28,7 +28,7 @@ func set_timeout(a_callback_func: Callable, delay_seconds: float) -> Callable:
 	wrapper.call()
 	
 	return func() -> void:
-		canceled = true
+		canceled = true # untested probably wont work as lambdas are not equal to array functions
 
 func set_interval(a_callback_func: Callable, interval_seconds: float) -> Callable:
 	var canceled := false
@@ -42,4 +42,4 @@ func set_interval(a_callback_func: Callable, interval_seconds: float) -> Callabl
 	wrapper.call() # Start the interval in the background
 
 	return func() -> void:
-		canceled = true
+		canceled = true # untested probably wont work as lambdas are not equal to array functions

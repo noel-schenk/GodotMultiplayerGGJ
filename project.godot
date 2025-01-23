@@ -20,6 +20,13 @@ config/icon="res://icon.svg"
 State="*res://state.gd"
 Utils="*res://utils.gd"
 
+[display]
+
+window/size/viewport_width=4000
+window/size/viewport_height=2400
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [gui]
 
 theme/default_font_subpixel_positioning=0
